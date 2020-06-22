@@ -1,3 +1,12 @@
+" 自动安装 plug-vim
+if empty(glob('$HOME/.local/share/nvim/site/autoload/plug.vim'))
+  silent !curl -fLo $HOME/.local/share/nvim/site/autoload/plug.vim --create-dirs --insecure \
+		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+
+"------------------------- vim-plug 区域 --------------------------
 call plug#begin()
 
 " 自动补全工具
@@ -23,6 +32,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
+"------------------------- vim-plug 区域 --------------------------
 
 " 界面美化
 set laststatus=2 " 总是显示状态栏
